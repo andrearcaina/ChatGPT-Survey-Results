@@ -1,6 +1,12 @@
-import matplotlib.pyplot as plt     # library for graphing data
-import numpy as np                  # library for entering data
 import csv                          # library for reading data 
+
+'''
+    what this file does:
+        - open Generalized Responses csv file 
+        - read it and append it to a list of lists
+        - get each respective question responses into list
+        - write to a csv file (for clarity and readability) 
+'''
 
 with open("./data/ChatGPT Generalized Responses.csv","r") as f:
     r = csv.reader(f,delimiter=",")
@@ -17,7 +23,7 @@ RELIABILITY   = [row[9] for row in RESPONSES]
 LEARNING      = [row[10] for row in RESPONSES]
 DISHONESTY    = [row[11] for row in RESPONSES]
 ASSISTANCE    = [row[12] for row in RESPONSES]             
-# cock
+
 IMPROVED_DATA = [
                     AGE,
                     DEPARTMENT,
@@ -34,9 +40,3 @@ with open("./data/Individual Data.csv","w",newline='') as f:
     write = csv.writer(f,delimiter=",")
     for data_row in IMPROVED_DATA:
         write.writerow(data_row)
-
-'''
-    what to do:
-        - determine what graphs to present
-        - then use the csv and the data to present it using matplotlib
-'''
