@@ -17,7 +17,7 @@ RELIABILITY   = [row[9] for row in RESPONSES]
 LEARNING      = [row[10] for row in RESPONSES]
 DISHONESTY    = [row[11] for row in RESPONSES]
 ASSISTANCE    = [row[12] for row in RESPONSES]             
-
+# cock
 IMPROVED_DATA = [
                     AGE,
                     DEPARTMENT,
