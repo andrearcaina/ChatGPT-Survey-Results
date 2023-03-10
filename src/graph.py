@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt     # library for graphing data
 import numpy as np                  # library for entering data
-import readcsv as rc                # use variables from read_csv file
+from readcsv import *               # use variables from read_csv file
 
 '''
     what to do:

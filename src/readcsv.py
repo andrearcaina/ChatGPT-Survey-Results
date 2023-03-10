@@ -1,4 +1,4 @@
-import csv                          # library for reading data 
+import csv # library for reading data 
 
 '''
     what this file does:
@@ -36,6 +36,7 @@ IMPROVED_DATA = [
                     ASSISTANCE
                 ]
 
+# this is not necessary (unless you want the spreadsheet or excel)
 with open("./data/Individual Data.csv","w",newline='') as f:
     write = csv.writer(f,delimiter=",")
     for data_row in IMPROVED_DATA:
