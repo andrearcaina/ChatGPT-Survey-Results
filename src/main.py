@@ -1,40 +1,80 @@
-from tkinter import *   # library for GUI elements
+from tkinter import *                          # library for GUI elements
+from graph import (create_pie, create_bar)     # import functions from graph.py
+from readcsv import *                          # use variables from read_csv file
 
 class Window(Tk):
     def __init__(self):
         super().__init__()
 
-        # UI elements
+        # title, resolution, background colour
         self.title("ChatGPT Survey GUI")
         self.geometry('800x800')
         self.configure(background="light gray")
 
-        self.l_title = Label(self, bg = "light gray", text="Click a button to check a graph!", font = ("Georgia", 25)).place(x=150, y=0)
-
+        l_title         = Label(self, 
+                                 bg = "light gray", 
+                                 text= "Click a button to check a graph!", 
+                                 font = ("Georgia", 25))
+        
         # button initializations
         # add action events for each button later
-        b_age           = Button(self, width = 27, text = "How Old?", pady=10).place(x=0, y=50)
+        b_age           = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(AGE,AGE[0]), 
+                                 text = "How Old?", pady=10)
 
-        b_department    = Button(self, width = 27, text = "What Department?", pady=10).place(x=200, y=50)
+        b_department    = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(DEPARTMENT,DEPARTMENT[0]), 
+                                 text = "What Department?", pady=10)
 
-        b_heard         = Button(self, width = 27, text = "Have you Heard of ChatGPT?", pady=10).place(x=400, y=50)
+        b_heard         = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(HEARD,HEARD[0]), 
+                                 text = "Have you Heard of ChatGPT?", pady=10)
         
-        b_usage         = Button(self, width = 27, text = "How have you Used ChatGPT?", pady=10).place(x=600, y=50)
+        b_usage         = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_bar(USAGE,USAGE[0]), 
+                                 text = "How have you Used ChatGPT?", pady=10)
         
-        b_improvement   = Button(self, width = 27, text = "Any Improvement from ChatGPT?", pady=10).place(x=0, y=100)
+        b_improvement   = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(IMPROVEMENT,IMPROVEMENT[0]), 
+                                 text = "Any Improvement from ChatGPT?", pady=10)
         
-        b_reliability   = Button(self, width = 27, text = "How Reliable is ChatGPT?", pady=10).place(x=200, y=100)
+        b_reliability   = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(RELIABILITY,RELIABILITY[0]), 
+                                 text = "How Reliable is ChatGPT?", pady=10)
         
-        b_learning      = Button(self, width = 27, text = "Learnt from ChatGPT?", pady=10).place(x=400, y=100)
-        
-        b_dishonesty    = Button(self, width = 27, text = "Academic Dishonesty?", pady=10).place(x=600, y=100)
-        
-        b_assistance    = Button(self, width = 27, text = "What kind of Assistance?", pady=10).place(x=300, y=150)
+        b_learning      = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(LEARNING,LEARNING[0]), 
+                                 text = "Learnt from ChatGPT?", pady=10)
+       
+        b_dishonesty    = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_pie(DISHONESTY,DISHONESTY[0]), 
+                                 text = "Academic Dishonesty?", pady=10)
+       
 
-        # button functionality
-        # will display graph
-        def display(self,data,title):
-            pass
+        b_assistance    = Button(self, 
+                                 width = 27, 
+                                 command = lambda: create_bar(ASSISTANCE,ASSISTANCE[0]), 
+                                 text = "What kind of Assistance?", pady=10)
+
+        # place where they are on the GUI (x, y)
+        l_title.place(x=160, y=0)
+        b_age.place(x=0, y=50)
+        b_department.place(x=200, y=50)
+        b_heard.place(x=400, y=50)
+        b_usage.place(x=600, y=50)
+        b_improvement.place(x=0, y=100)
+        b_learning.place(x=400, y=100)
+        b_reliability.place(x=200, y=100)
+        b_dishonesty.place(x=600, y=100)
+        b_assistance.place(x=300, y=150)
 
 if __name__ == '__main__':
     GUI = Window()
