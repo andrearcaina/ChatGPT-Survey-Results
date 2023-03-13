@@ -9,20 +9,21 @@ class Window:
 
         self.root.title("ChatGPT Survey GUI")
         self.root.geometry('800x800')
-        self.root.configure(background="light gray")
+        self.root.configure(background="#5A5A5A")
         self.root.resizable(False,False)
 
         l_title         = Label(self.root,
-                                 bg = "light gray",
+                                 bg = "#5A5A5A",
+                                 fg = "white",
                                  text= "Click a button to check a graph!", 
                                  font = ("Georgia", 25))
         
         # button initializations
-        # add action events for each button later
+        # add action events for each button later    
         b_age           = Button(self.root, 
                                  width = 25, 
                                  command = lambda: create_pie(self.root,AGE[1:],AGE[0]), 
-                                 text = "How Old?", pady=10)
+                                 text = "What is your age?", pady=10)
 
         b_department    = Button(self.root, 
                                  width = 25, 
