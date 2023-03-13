@@ -21,7 +21,8 @@ def create_pie(frame,data,title):
     
     font = {'family' : 'Georgia',
             'weight' : 'normal',
-            'size'   : 11}
+            'size'   : 11
+           }
 
     plt.rc('font', **font)
 
@@ -29,7 +30,29 @@ def create_pie(frame,data,title):
     ax = fig.add_subplot(111)
     fig.set_facecolor('#D3D3D3')
     ax.set_title(title, loc='center', wrap=True)
-    ax.pie(totals, radius=0.7, labels=values)
+    ax.pie(
+        totals, 
+        radius=0.7, 
+        labels=values,
+        colors=['#89D2DC', 
+                '#6564DB', 
+                '#232ED1', 
+                '#101D42', 
+                '#0D1317', 
+                '#6340B9', 
+                '#3DE5E3', 
+                '#071C5E', 
+                '#6C7592', 
+                '#5603CD', 
+                '#DDC5FF', 
+                '#1B0D2F', 
+                '#3C5BE6', 
+                '#7281C1', 
+                '#064042', 
+                '#931EBF', 
+                '#F700E8'
+                ]
+        )
     
     #putting the chart onto tkinter
     chart = FigureCanvasTkAgg(fig,frame)
