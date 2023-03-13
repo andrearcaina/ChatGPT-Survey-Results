@@ -1,6 +1,6 @@
 # ChatGPT-Survey-Results
 - This is a program that reads data from a specific survey and generates multiple graphs. 
-- Programmed using python and libraries such as **tkinter, numPy, and matplotlib**.
+- Programmed using python and libraries such as **Tkinter, NumPy, and Matplotlib**!
 
 # Survey
 - To access the survey, click this link [ChatGPT Survey](https://forms.gle/CVH2ucVJkqvs3SqB7).
