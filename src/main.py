@@ -10,6 +10,7 @@ class Window(Tk):
         self.title("ChatGPT Survey GUI")
         self.geometry('800x800')
         self.configure(background="light gray")
+        self.resizable(False,False)
 
         l_title         = Label(self, 
                                  bg = "light gray", 
@@ -20,48 +21,48 @@ class Window(Tk):
         # add action events for each button later
         b_age           = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(AGE,AGE[0]), 
+                                 command = lambda: create_pie(AGE[1:],AGE[0]), 
                                  text = "How Old?", pady=10)
 
         b_department    = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(DEPARTMENT,DEPARTMENT[0]), 
+                                 command = lambda: create_pie(DEPARTMENT[1:],DEPARTMENT[0]), 
                                  text = "What Department?", pady=10)
 
         b_heard         = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(HEARD,HEARD[0]), 
+                                 command = lambda: create_pie(HEARD[1:],HEARD[0]), 
                                  text = "Have you Heard of ChatGPT?", pady=10)
         
         b_usage         = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_bar(USAGE,USAGE[0]), 
+                                 command = lambda: create_bar(USAGE[1:],USAGE[0]), 
                                  text = "How have you Used ChatGPT?", pady=10)
         
         b_improvement   = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(IMPROVEMENT,IMPROVEMENT[0]), 
+                                 command = lambda: create_pie(IMPROVEMENT[1:],IMPROVEMENT[0]), 
                                  text = "Any Improvement from ChatGPT?", pady=10)
         
         b_reliability   = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(RELIABILITY,RELIABILITY[0]), 
+                                 command = lambda: create_pie(RELIABILITY[1:],RELIABILITY[0]), 
                                  text = "How Reliable is ChatGPT?", pady=10)
         
         b_learning      = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(LEARNING,LEARNING[0]), 
+                                 command = lambda: create_pie(LEARNING[1:],LEARNING[0]), 
                                  text = "Learnt from ChatGPT?", pady=10)
        
         b_dishonesty    = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_pie(DISHONESTY,DISHONESTY[0]), 
+                                 command = lambda: create_pie(DISHONESTY[1:],DISHONESTY[0]), 
                                  text = "Academic Dishonesty?", pady=10)
        
 
         b_assistance    = Button(self, 
                                  width = 27, 
-                                 command = lambda: create_bar(ASSISTANCE,ASSISTANCE[0]), 
+                                 command = lambda: create_bar(ASSISTANCE[1:],ASSISTANCE[0]), 
                                  text = "What kind of Assistance?", pady=10)
 
         # place where they are on the GUI (x, y)

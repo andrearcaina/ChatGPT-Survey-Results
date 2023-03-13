@@ -13,10 +13,12 @@ import numpy as np                                              # library for en
 
 # just prints it for now
 def create_pie(data,title):
-    print(data)
     print(title)
+    values, totals = np.unique(data, return_counts=True)
+    print(values, totals)
 
 # just prints it for now
 def create_bar(data,title): 
-    print(data)
     print(title)
+    values, totals = np.unique(data, return_counts=True)
+    print(values, totals)
