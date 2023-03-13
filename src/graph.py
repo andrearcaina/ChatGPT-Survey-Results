@@ -1,7 +1,7 @@
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg # for drawing graphs on tkinter
 import matplotlib.pyplot as plt                                 # library for graphing data
 import numpy as np                                              # library for entering data
-from tkinter import Button
+from tkinter import Button                                      # import Button
 
 '''
     what to do:
@@ -30,10 +30,12 @@ def create_pie(frame,data,title):
 
     plt.rc('font', **font)
 
-    fig, ax = plt.subplots(figsize=(5,5))
+    fig, ax = plt.subplots(figsize=(5,5)) #figsize is height and width of the figure
 
-    fig.set_facecolor('#5A5A5A')
-    ax.set_title(title, loc='center', wrap=True, color="w")
+    fig.set_facecolor('#5A5A5A') #color of figure background
+    ax.set_title(title, loc='center', wrap=True, color="w") #title of figure
+    
+    #setting up the pie
     ax.pie(
         totals, 
         radius=1,
@@ -63,6 +65,10 @@ def create_pie(frame,data,title):
     #putting the chart onto tkinter
     chart = FigureCanvasTkAgg(fig,frame)
     chart.get_tk_widget().pack(side='bottom',fill='both',expand=True)
+    
+    #putting button on canvas and calling
+    #the remove_figures function to remove both of them
+    #to go back to the previous screen
     button = Button(frame, 
                     width = 25, 
                     command = lambda: remove_figures(canvas=chart,button=button), 
