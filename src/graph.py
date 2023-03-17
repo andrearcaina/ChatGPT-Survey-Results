@@ -2,6 +2,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg # for drawing gr
 import matplotlib.pyplot as plt                                 # library for graphing data
 import numpy as np                                              # library for entering data
 from tkinter import Button                                      # import Button
+from readcsv import remove_spaces                               # get specific function
 
 '''
     what to do:
@@ -76,7 +77,13 @@ def create_pie(frame,data,title):
     button.place(x=10,y=10)
 
 # just prints it for now
-def create_bar(frame,data,title):
+def create_bar(frame,data,title,question):
+    print(set(data))
     print(title)
     values, totals = np.unique(data, return_counts=True)
-    print(values, totals)
+    if question == "USED":
+        values = list(set(values.tolist()))
+        print(values, totals)
+
+    if question == "ASSISTED":
+        print(values,totals)
