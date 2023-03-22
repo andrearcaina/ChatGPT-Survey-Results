@@ -86,7 +86,7 @@ def create_bar(frame,question):
 
         newBottom = [1,8,7,5,2,7,0,2,1,26,1]
 
-        fig, ax = plt.subplots(figsize=(10,6)) #figsize is height and width of the figure
+        fig, ax = plt.subplots(figsize=(20,6)) #figsize is height and width of the figure
 
         # create a stacked bar graph
         plt.bar(majors, y1_HaveNotUsed, color = '#064042', label='I have not used ChatGPT for academia')
