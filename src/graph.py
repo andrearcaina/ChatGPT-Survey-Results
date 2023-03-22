@@ -45,7 +45,7 @@ def create_pie(frame,data,title):
         colors=['#89D2DC', 
                 '#6564DB', 
                 '#232ED1', 
-                '#101D42', 
+                '#101D70', 
                 '#0D1317', 
                 '#6340B9', 
                 '#3DE5E3', 
@@ -77,13 +77,43 @@ def create_pie(frame,data,title):
     button.place(x=10,y=10)
 
 # just prints it for now
-def create_bar(frame,data,title,question):
-    print(set(data))
-    print(title)
-    values, totals = np.unique(data, return_counts=True)
+def create_bar(frame,question):
     if question == "USED":
-        values = list(set(values.tolist()))
-        print(values, totals)
+        majors = ['Architecture', 'Arts', 'Business', 'Community Service', 'Economics', 'Engineering', 'Human Geography', 'Math and Science', 'Mathematics', 'Science', 'Science and Business']
+        y1_HaveNotUsed = [1, 5, 5, 2, 2, 6, 0, 2, 0, 21, 0]
+        y2_No = [0, 3, 2, 3, 0, 1, 0, 0, 1, 5, 1]
+        y3_Yes = [0, 2, 2, 0, 0, 4, 1, 0, 0, 17, 0]
+
+        newBottom = [1,8,7,5,2,7,0,2,1,26,1]
+
+        fig, ax = plt.subplots(figsize=(10,6)) #figsize is height and width of the figure
+
+        # create a stacked bar graph
+        plt.bar(majors, y1_HaveNotUsed, color = '#064042', label='I have not used ChatGPT for academia')
+        plt.bar(majors, y2_No, bottom=y1_HaveNotUsed, color = '#7281C1', label='No')
+        plt.bar(majors, y3_Yes, bottom=newBottom, color = '#931EBF', label='Yes')
+
+        # add title and axis labels
+        plt.title("Improvement in Grade vs. Student Majors")
+        plt.xlabel('Majors')
+        plt.ylabel('Number of Students')
+
+        # add legend
+        plt.legend()
+
+        #putting the chart onto tkinter
+        chart = FigureCanvasTkAgg(fig,frame)
+        chart.get_tk_widget().pack(side='bottom',fill='both',expand=True)
+        
+        #putting button on canvas and calling
+        #the remove_figures function to remove both of them
+        #to go back to the previous screen
+        button = Button(frame, 
+                        width = 25, 
+                        command = lambda: remove_figures(canvas=chart,button=button), 
+                        text = "Go Back!", pady=10)
+        button.place(x=10,y=10)
+
 
     if question == "ASSISTED":
-        print(values,totals)
+        pass
