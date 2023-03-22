@@ -12,6 +12,21 @@ from readcsv import remove_spaces                               # get specific f
     what this code does:
         - use data from read_csv file and output the respective graphs
 '''
+
+def display(fig,frame):
+    #putting the chart onto tkinter
+    chart = FigureCanvasTkAgg(fig,frame)
+    chart.get_tk_widget().pack(side='bottom',fill='both',expand=True)
+    
+    #putting button on canvas and calling
+    #the remove_figures function to remove both of them
+    #to go back to the previous screen
+    button = Button(frame, 
+                    width = 25, 
+                    command = lambda: remove_figures(canvas=chart,button=button), 
+                    text = "Go Back!", pady=10)
+    button.place(x=10,y=10)
+
 def remove_figures(canvas,button):
     canvas.get_tk_widget().destroy()
     button.destroy()
@@ -63,18 +78,8 @@ def create_pie(frame,data,title):
         )
     ax.legend(values,loc="lower left")
 
-    #putting the chart onto tkinter
-    chart = FigureCanvasTkAgg(fig,frame)
-    chart.get_tk_widget().pack(side='bottom',fill='both',expand=True)
-    
-    #putting button on canvas and calling
-    #the remove_figures function to remove both of them
-    #to go back to the previous screen
-    button = Button(frame, 
-                    width = 25, 
-                    command = lambda: remove_figures(canvas=chart,button=button), 
-                    text = "Go Back!", pady=10)
-    button.place(x=10,y=10)
+    #calling display function to display graph and button
+    display(fig,frame)
 
 # just prints it for now
 def create_bar(frame,question):
@@ -100,19 +105,8 @@ def create_bar(frame,question):
 
         # add legend
         plt.legend()
-
-        #putting the chart onto tkinter
-        chart = FigureCanvasTkAgg(fig,frame)
-        chart.get_tk_widget().pack(side='bottom',fill='both',expand=True)
-        
-        #putting button on canvas and calling
-        #the remove_figures function to remove both of them
-        #to go back to the previous screen
-        button = Button(frame, 
-                        width = 25, 
-                        command = lambda: remove_figures(canvas=chart,button=button), 
-                        text = "Go Back!", pady=10)
-        button.place(x=10,y=10)
+        #calling display function to display graph and button
+        display(fig,frame)
 
 
     if question == "ASSISTED":
