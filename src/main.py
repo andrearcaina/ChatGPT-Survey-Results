@@ -42,7 +42,7 @@ class Window:
         
         b_improvement   = Button(self.root, 
                                 width = 25, 
-                                command = lambda: create_pie(self.root,IMPROVEMENT[1:],IMPROVEMENT[0]), 
+                                command = lambda: create_bar(self.root,None,"IMPROVEMENT"), 
                                 text = "Any Improvement from ChatGPT?", pady=50, font=("Georgia", 10))
         
         b_reliability   = Button(self.root, 

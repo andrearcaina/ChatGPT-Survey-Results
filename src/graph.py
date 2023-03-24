@@ -39,6 +39,8 @@ def percentage(pct, allvals):
 def create_pie(frame,data,title):
     values, totals = np.unique(data, return_counts=True)
 
+    print(values, totals)
+
     fig, ax = plt.subplots(figsize=(5,5)) #figsize is height and width of the figure
 
     fig.set_facecolor('#5A5A5A') #color of figure background
@@ -59,7 +61,7 @@ def create_pie(frame,data,title):
 
 # just prints it for now
 def create_bar(frame,title,question):
-    if question == "USED":
+    if question == "IMPROVEMENT":
         majors = ['Architecture', 'Arts', 'Business', 'Community Service', 'Economics', 
                 'Engineering', 'Human Geography', 'Math and Science', 'Mathematics', 
                 'Science', 'Science and Business'
@@ -88,11 +90,15 @@ def create_bar(frame,title,question):
         display(fig,frame)
 
 
-    if question == "ASSISTED":
+    if question == "ASSISTED" or question == "USED":
         options = ['Essay writing or inspiration','Mathematics assistance','proofreading assignments',
                 'Summing up a topic','Research ideas','Grammar (vocab, syntax)','None',
                 'Secondary Google','Programming']
         totals = [39,39,54,52,56,54,7,1,1]
+
+        if question == "USED":
+            options = ['Academia','Entertainment', 'Personal', 'I have not Used ChatGPT']
+            totals = [40,27,29,30] 
 
         fig, ax = plt.subplots(figsize=(20,6)) #figsize is height and width of the figure
 
