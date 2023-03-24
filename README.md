@@ -9,3 +9,8 @@
 # Purpose: 
 - To survey 100+ university students with their experiences on ChatGPT!
 - Intended for the assignment in the course of CPS412.
+
+### ```How to run the program``` ###
+1. download the zip folder 
+2. extract the folder and then open up the src folder
+3. run main.py and then click on the buttons to see the graph!
