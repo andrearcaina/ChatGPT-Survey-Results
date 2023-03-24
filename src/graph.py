@@ -4,14 +4,14 @@ import numpy as np                                              # library for en
 from tkinter import Button                                      # import Button
 from readcsv import remove_spaces                               # get specific function
 
-'''
-    what to do:
-        - determine what graphs to present
-        - then use the csv and the data to present it using matplotlib
-    
-    what this code does:
-        - use data from read_csv file and output the respective graphs
-'''
+colors = [
+        '#89D2DC', '#6564DB', '#232ED1', 
+        '#101D70', '#0D1317', '#6340B9', 
+        '#3DE5E3', '#071C5E', '#6C7592', 
+        '#5603CD', '#DDC5FF', '#1B0D2F', 
+        '#3C5BE6', '#7281C1', '#064042', 
+        '#931EBF', '#F700E8'
+        ]
 
 def display(fig,frame):
     #putting the chart onto tkinter
@@ -38,13 +38,6 @@ def percentage(pct, allvals):
 # just prints it for now
 def create_pie(frame,data,title):
     values, totals = np.unique(data, return_counts=True)
-    
-    font = {'family' : 'Georgia',
-            'weight' : 'normal',
-            'size'   : 11
-           }
-
-    plt.rc('font', **font)
 
     fig, ax = plt.subplots(figsize=(5,5)) #figsize is height and width of the figure
 
@@ -57,24 +50,7 @@ def create_pie(frame,data,title):
         radius=1,
         autopct= lambda pct: percentage(pct, totals),
         textprops=dict(color="w"),
-        colors=['#89D2DC', 
-                '#6564DB', 
-                '#232ED1', 
-                '#101D70', 
-                '#0D1317', 
-                '#6340B9', 
-                '#3DE5E3', 
-                '#071C5E', 
-                '#6C7592', 
-                '#5603CD', 
-                '#DDC5FF', 
-                '#1B0D2F', 
-                '#3C5BE6', 
-                '#7281C1', 
-                '#064042', 
-                '#931EBF', 
-                '#F700E8'
-                ]
+        colors=colors,
         )
     ax.legend(values,loc="lower left")
 
@@ -82,21 +58,24 @@ def create_pie(frame,data,title):
     display(fig,frame)
 
 # just prints it for now
-def create_bar(frame,question):
+def create_bar(frame,title,question):
     if question == "USED":
-        majors = ['Architecture', 'Arts', 'Business', 'Community Service', 'Economics', 'Engineering', 'Human Geography', 'Math and Science', 'Mathematics', 'Science', 'Science and Business']
-        y1_HaveNotUsed = [1, 5, 5, 2, 2, 6, 0, 2, 0, 21, 0]
-        y2_No = [0, 3, 2, 3, 0, 1, 0, 0, 1, 5, 1]
-        y3_Yes = [0, 2, 2, 0, 0, 4, 1, 0, 0, 17, 0]
+        majors = ['Architecture', 'Arts', 'Business', 'Community Service', 'Economics', 
+                'Engineering', 'Human Geography', 'Math and Science', 'Mathematics', 
+                'Science', 'Science and Business'
+                ]
+        option_NotUsed = [1, 5, 5, 2, 2, 6, 0, 2, 0, 21, 0]
+        option_No = [0, 3, 2, 3, 0, 1, 0, 0, 1, 5, 1]
+        option_Yes = [0, 2, 2, 0, 0, 4, 1, 0, 0, 17, 0]
 
-        newBottom = [1,8,7,5,2,7,0,2,1,26,1]
+        bottom = [1,8,7,5,2,7,0,2,1,26,1]
 
         fig, ax = plt.subplots(figsize=(20,6)) #figsize is height and width of the figure
 
         # create a stacked bar graph
-        plt.bar(majors, y1_HaveNotUsed, color = '#064042', label='I have not used ChatGPT for academia')
-        plt.bar(majors, y2_No, bottom=y1_HaveNotUsed, color = '#7281C1', label='No')
-        plt.bar(majors, y3_Yes, bottom=newBottom, color = '#931EBF', label='Yes')
+        plt.bar(majors, option_NotUsed, color = colors[14], label='I have not used ChatGPT for academia')
+        plt.bar(majors, option_No, bottom=option_NotUsed, color = colors[13], label='No')
+        plt.bar(majors, option_Yes, bottom=bottom, color = colors[15], label='Yes')
 
         # add title and axis labels
         plt.title("Improvement in Grade vs. Student Majors")
@@ -110,4 +89,21 @@ def create_bar(frame,question):
 
 
     if question == "ASSISTED":
-        pass
+        options = ['Essay writing or inspiration','Mathematics assistance','proofreading assignments',
+                'Summing up a topic','Research ideas','Grammar (vocab, syntax)','None',
+                'Secondary Google','Programming']
+        totals = [39,39,54,52,56,54,7,1,1]
+
+        fig, ax = plt.subplots(figsize=(20,6)) #figsize is height and width of the figure
+
+        plt.style.use('ggplot')
+        plt.barh(options, totals, color = colors)
+        plt.title(title)
+        plt.ylabel('Options')
+        plt.xlabel('Total People Inputted')
+    
+        for index, value in enumerate(totals):
+            percentage = "{:.1f}%".format(value / 86 * 100)
+            plt.text(value, index, f"{value} ({percentage})")
+
+        display(fig,frame)
