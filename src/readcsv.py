@@ -1,3 +1,10 @@
+'''
+Andre Arcaina  | Student ID: 501157540
+Adam Begagic   | Student ID: 501155113
+Joseph Leung   | Student ID: 501160939
+Lauren Griffin | Student ID: 501098426
+'''
+
 import csv # library for reading data 
 
 '''
@@ -7,6 +14,7 @@ import csv # library for reading data
         - get each respective question responses into list
         - write to a csv file (for clarity and readability) 
 '''
+
 def remove_spaces(data):
     return [i for i in data if i != '']
 

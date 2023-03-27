@@ -1,6 +1,18 @@
+'''
+Andre Arcaina  | Student ID: 501157540
+Adam Begagic   | Student ID: 501155113
+Joseph Leung   | Student ID: 501160939
+Lauren Griffin | Student ID: 501098426
+'''
+
 from tkinter import *                          # library for GUI elements
 from graph import (create_pie, create_bar)     # import functions from graph.py
 from readcsv import *                          # use variables from read_csv file
+
+'''
+    main file with GUI elements
+    creates a window with buttons to check graphs
+'''
 
 class Window:
     def __init__(self,root):

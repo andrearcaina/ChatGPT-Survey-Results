@@ -1,8 +1,19 @@
+'''
+Andre Arcaina  | Student ID: 501157540
+Adam Begagic   | Student ID: 501155113
+Joseph Leung   | Student ID: 501160939
+Lauren Griffin | Student ID: 501098426
+'''
+
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg # for drawing graphs on tkinter
 import matplotlib.pyplot as plt                                 # library for graphing data
 import numpy as np                                              # library for entering data
 from tkinter import Button                                      # import Button
-from readcsv import remove_spaces                               # get specific function
+
+'''
+    this file contains all the functions 
+    each function assists/displays the graphs onto the screen
+'''
 
 colors = [
         '#89D2DC', '#6564DB', '#232ED1', 
