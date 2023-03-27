@@ -37,7 +37,7 @@ class Window:
         
         b_usage         = Button(self.root, 
                                 width = 25, 
-                                command = lambda: create_bar(self.root,None,"USED"), 
+                                command = lambda: create_bar(self.root,USAGE[0],"USED"), 
                                 text = "How have you Used ChatGPT?", pady=50, font=("Georgia", 10))
         
         b_improvement   = Button(self.root, 
