@@ -16,22 +16,23 @@ from readcsv import *                          # use variables from read_csv fil
 
 class Window:
     def __init__(self,root):
-        # title, resolution, background colour
+        # frame
         self.root = root
 
+        # title, resolution, background colour and setting resizable
         self.root.title("ChatGPT Survey GUI")
         self.root.geometry('1900x950')
         self.root.configure(background="#5A5A5A")
         self.root.resizable(True,True)
 
+        # title of GUI window (as a label)
         l_title         = Label(self.root,
                                 bg = "#5A5A5A",
                                 fg = "white",
                                 text= "Click a button to check a graph!", 
                                 font = ("Georgia", 25))
     
-        # button initializations
-        # add action events for each button later    
+        # button initializations for age to assistance 
         b_age           = Button(self.root, 
                                 width = 25, 
                                 command = lambda: create_pie(self.root,AGE[1:],AGE[0]), 
@@ -90,7 +91,11 @@ class Window:
         b_dishonesty.place(x=1170, y=200)
         b_assistance.place(x=830, y=350)
 
+# main function
 if __name__ == '__main__':
+    # create a Tk object
     root = Tk()
+    # create a Window object with root passed in
     GUI = Window(root)
+    # start the GUI
     GUI.root.mainloop()
